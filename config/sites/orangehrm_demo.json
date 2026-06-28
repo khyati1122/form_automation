@@ -1,0 +1,45 @@
+{
+  "site_id": "orangehrm_demo",
+  "label": "OrangeHRM Demo",
+  "start_url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  "login": {
+    "username_selector": "input[name='username']",
+    "password_selector": "input[name='password']",
+    "submit_selector": "button[type='submit']",
+    "username_key": "username",
+    "password_key": "password",
+    "success_url_patterns": [
+      "/web/index.php/dashboard/index"
+    ],
+    "success_validation_prompt": "Confirm the OrangeHRM user is logged in and the dashboard is visible."
+  },
+  "navigation": {
+    "form_navigation_prompt": "Navigate from the dashboard to the Admin > User Management > Users page.",
+    "review_handoff_prompt": "If the edit user view is already open, stay on that page for human review. Otherwise stop on the best available Admin user edit screen. Do not click Save and do not submit any changes."
+  },
+  "fill": {
+    "task_prompt_template": "Use the following source data to prepare the target workflow as far as possible without finalizing anything. Source fields: {source_data_json}. Source context: {source_context}. Site hints: {field_hints_json}. On Admin > User Management > Users, use the provided search criteria to find the intended user, open that user's edit action, and update only the editable fields that are explicitly provided. If a provided field is not present or not editable, stop on the best human review page without guessing. Stop before Save and do not submit any changes.",
+    "max_steps": 16,
+    "field_hints": {
+      "target_area": "Admin > User Management > Users > Edit User",
+      "search_fields": "Use values like search_username, search_user_role, search_employee_name, and search_status to narrow the system users list before opening edit.",
+      "editable_fields": "Only change values explicitly supplied such as edit_username, edit_user_role, edit_employee_name, edit_status, or password-related fields if the page offers them.",
+      "submission_policy": "Never submit or save anything automatically."
+    }
+  },
+  "review": {
+    "url_patterns": [
+      "/web/index.php/admin/saveSystemUser",
+      "/web/index.php/admin/viewSystemUsers"
+    ],
+    "validation_prompt": "Confirm the browser is on the OrangeHRM Admin user edit flow or the Admin Users page, and that no final save or submit action has been taken.",
+    "forbidden_text": [
+      "Successfully Saved",
+      "Successfully Updated",
+      "Successfully Deleted"
+    ],
+    "submit_selectors": [
+      "button[type='submit']"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "site_id": "orangehrm_demo",
+  "credentials": {
+    "username": "admin",
+    "password": "admin123"
+  },
+  "source_data": {
+    "request_type": "admin-user-edit-draft",
+    "search_username": "Admin",
+    "edit_user_role": "Admin",
+    "edit_status": "Enabled"
+  },
+  "target_payload": {
+    "search_username": "Admin",
+    "edit_user_role": "Admin",
+    "edit_status": "Enabled"
+  },
+  "source_documents": [
+    {
+      "type": "text",
+      "label": "Operator Notes",
+      "content": "Search for the Admin user in Admin > User Management > Users, open the edit flow, apply only the explicitly provided field values, and stop before Save."
+    }
+  ],
+  "session": {
+    "timeout_minutes": 60,
+    "browser_profile_id": null
+  }
+}
