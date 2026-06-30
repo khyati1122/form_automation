@@ -10,8 +10,7 @@
     "password_key": "password",
     "success_url_patterns": [
       "/web/index.php/dashboard/index"
-    ],
-    "success_validation_prompt": "Confirm the OrangeHRM user is logged in and the dashboard is visible."
+    ]
   },
   "navigation": {
     "form_navigation_prompt": "Navigate from the dashboard to the Admin > User Management > Users page.",
